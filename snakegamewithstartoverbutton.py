@@ -177,7 +177,7 @@ def restart_game():
 restart_button = Button(window, text="Restart", command=restart_game, font=('consolas', 20))
 restart_button.place(x=0, y=0)
 
-window.bind('r', restart_game)
+window.bind('r', lambda event: restart_game())
 
 window.mainloop()
 
