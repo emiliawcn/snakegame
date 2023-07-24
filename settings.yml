@@ -1,0 +1,13 @@
+window:
+  width: 700
+  height: 700
+
+color:
+  snake: '#00FF00'
+  food: '#FF0000'
+  background: '#000000'
+
+behavior:
+  speed: 50
+  space: 50
+  body-parts: 3
