@@ -4,14 +4,19 @@
 from tkinter import *
 import random
 
-GAME_WIDTH = 700
-GAME_HEIGHT = 700
-SPEED = 50
-SPACE_SIZE = 50
-BODY_PARTS = 3
-SNAKE_COLOR = "#00FF00"
-FOOD_COLOR = "#FF0000"
-BACKGROUND_COLOR = "#000000"
+from yaml import safe_load 
+
+SETTINGS_FILE = "settings.yml" 
+file = open(SETTINGS_FILE, "r")
+settings = safe_load(file)
+GAME_WIDTH = settings["window"]["width"]
+GAME_HEIGHT = settings["window"]["height"]
+SPEED = settings["behavior"]["speed"]
+SPACE_SIZE = settings["behavior"]["space"]
+BODY_PARTS = settings["behavior"]["body-parts"]
+SNAKE_COLOR = settings["color"]["snake"]
+FOOD_COLOR = settings["color"]["food"]
+BACKGROUND_COLOR = settings["color"]["background"]
 
 
 class Snake:
@@ -162,7 +167,6 @@ next_turn(snake, food)
 # print("function x ran")
 def restart_game():
     global snake, food, score, direction
-
     # Reset game variables to initial values
     canvas.delete(ALL)
     snake = Snake()
